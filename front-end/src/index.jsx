@@ -13,6 +13,7 @@ const user = localStorage.getItem('token')
 
 root.render(
   <React.StrictMode>
+    
     <BrowserRouter>
         <Routes>
           {user && <Route path = '/home' exact element={<Home/>} />}

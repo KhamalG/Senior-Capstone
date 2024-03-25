@@ -29,8 +29,13 @@ function Login() {
         <div style={styles.loginBody}>
           <main className="form-signin w-100 m-auto">
             <form onSubmit={submit}>
-              <h1 style={styles.header}>Drive-5 Login Page</h1>
+              <h1 style={styles.header}>Drive 5 Deliveries</h1>
+
+              {/* Don't forget to add the logo here! */}
+              <img src={require("../styles/images/drive5logo.jpg")} height='350' width='350' alt='Drive-5 logo' />
+              
               <div className="form-floating">
+                    <p>Sign in to place orders and check their status.</p>
                     <label for="floatingInput" style={styles.label}>Username: </label>
                     <input type="email"  id="floatingInput"
                     onChange={e => setEmail(e.target.value)}
@@ -44,6 +49,7 @@ function Login() {
                     style={styles.text}
                     />
                 </div>
+                <br/>
               <button  type="submit" style={styles.button}>Sign in</button>
             </form>
           </main>
