@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Login from './Screens/Login';
+import Order from './Screens/Order';
+import Account from './Screens/Account';
+import Cart from './Screens/Cart';
+import Shop from './Screens/Shop';
 
-function App() {
+const Stack = createNativeStackNavigator();
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-         login
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name = "Login" component = {Login}/>
+        <Stack.Screen name = "Order" component={Order} />
+        <Stack.Screen name="Account" component={Account} />
+        <Stack.Screen name="Cart" component={Cart} />
+        <Stack.Screen name="Shop" component={Shop} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
+
+
 
 export default App;
