@@ -6,21 +6,26 @@ const styles = {
         backgroundColor: 'white',
         fontSize: '16pt',
     },
-    header: {
+    loginHeader: {
         color: 'white',
         fontFamily: 'Courier',
         backgroundColor: 'gray',
         fontSize:'30pt',
     },
-    label: {
+    loginLabel: {
         fontFamily: 'Courier',
         fontSize: '14pt',
         padding: '5px',
     },
-    button: {
+    loginButton: {
         fontFamily: 'Courier',
         fontSize: '14pt',
         padding: '3px',
+    },
+    headerComponent: {
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        border: '5px solid gray',
     },
 }
 
