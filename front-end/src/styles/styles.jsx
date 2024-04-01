@@ -22,6 +22,14 @@ const styles = {
         fontSize: '14pt',
         padding: '3px',
     },
+    navBar: {
+        fontSize: '12pt',
+        color: 'black'
+    },
+    link: {
+        color: 'black',
+        padding: '10px',
+    }
 }
 
 export default styles;
