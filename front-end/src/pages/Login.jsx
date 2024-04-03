@@ -26,8 +26,10 @@ function Login() {
     }
 
     return (
+      
         <div style={styles.loginBody}>
           <main className="form-signin w-100 m-auto">
+
             <form onSubmit={submit}>
               <h1 style={styles.loginHeader}>Drive 5 Deliveries</h1>
 
@@ -50,7 +52,7 @@ function Login() {
                     />
                 </div>
                 <br/>
-              <button  type="submit" style={styles.loginButton}>Sign in</button>
+              <button  type="submit" style={styles.button}>Sign in</button>
             </form>
           </main>
         </div>
