@@ -1,11 +1,14 @@
 import Header from "../components/header";
+import styles from "../styles/styles";
 
 function Order() {
     return (
       <div className="App">
         <Header/>
-        <h1>Order</h1>
-        <p>Displaying the order details from the database?</p>
+        <h1 style={styles.pageTitle}>Order</h1>
+        <div style={styles.pageBody}>
+        Order creation stuff goes here.
+        </div>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import Header from "../components/header";
-
+import styles from "../styles/styles";
 
 function Inventory() {
 
@@ -23,27 +23,25 @@ function Inventory() {
     return (
       <div className="App">
         <Header/>
-        <h1>Inventory</h1>
-
+        <h1 style={styles.pageTitle}>Inventory</h1>
+        <button style={styles.pageButton}>Add to cart</button>
         {/*Begin Copied table code*/}                    
-        <div className = "inventoryTable">
+        <div style={styles.pageBody}>
             <table>
-                <thead className = "tableHead">
+                <thead>
                     <tr>
                         <th>Item</th>
                         <th>Description</th>
                         <th>Price</th>
                         <th>Stock</th>
-                        <th>Add to cart</th>
                         {/* Add more headers as needed */}
                     </tr>
                 </thead>
-                <tbody className = "tableBody">
+                <tbody>
                     <td> Sandwich </td>
                     <td> Ham and swiss cheese </td>
                     <td> $3.00 </td>
                     <td> 5 </td>
-                    <td> button goes here </td>
                   <tr>Granola bar</tr>
                   <tr></tr>
                     {/*data.map(item => (
