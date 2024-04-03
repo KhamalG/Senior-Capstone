@@ -52,7 +52,7 @@ function Login() {
                     />
                 </div>
                 <br/>
-              <button  type="submit" style={styles.button}>Sign in</button>
+              <button  type="submit" style={styles.loginButton}>Sign in</button>
             </form>
           </main>
         </div>

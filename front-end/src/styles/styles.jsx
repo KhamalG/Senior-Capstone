@@ -22,7 +22,7 @@ const styles = {
     loginButton: {
         fontFamily: 'Courier',
         fontSize: '14pt',
-        padding: '3px',
+        padding: '5px',
     },
     headerComponent: {
         display: 'flex',
