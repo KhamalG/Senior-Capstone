@@ -27,28 +27,34 @@ export default function InventoryModal({closeModal}) {
         <div style={styles.modalBackground}>
             <div style={styles.modalContainer}>
                 <form onSubmit={closeModal(false)}>
-                    <h1 style={styles.header}>New Email</h1>
+                    <h1 style={styles.header}>New Item</h1> {/*Title for modal */}
                     <div style={styles}>
-                        <label for="floatingInput" style={styles.label}>To</label>
-                        <input type="email" style={styles.label} id="floatingInput" placeholder="name@example.com"
+                        <label for="Item Name" style={styles.label}>Item Name</label>
+                        <input type="text" style={styles.label} id="itemname" placeholder="Product"
                         onChange={e => setTo(e.target.value)}
                         />
                     </div>
                     <div style={styles}>
-                        <label for="floatingInput" style={styles.label}>Subject</label>
-                        <input type="text" style={styles.label} id="floatingInput" placeholder="Sample Subject"
+                        <label for="Quantity" style={styles.label}>Quantity</label>
+                        <input type="text" style={styles.label} id="quantity" placeholder="55"
                         onChange={e => setSubject(e.target.value)}
                         />
                     </div> 
                     <div style={styles}>
-                        <label for="floatingInput" style={styles.label}>Body</label>
-                        <input type="text" style={styles.label} id="floatingInput" placeholder="Sample Body"
+                        <label for="Price" style={styles.label}>Price of One</label>
+                        $: <input type="text" style={styles.label} id="Cost" placeholder="20"
                         onChange={e => setText(e.target.value)}
                         />
                     </div>
                     <div style={styles}>
+                        <label for="Description" style={styles.label}>Description</label>
+                        <input type="text" style={styles.label} id="details" placeholder="Cheese and turkey"
+                        onChange={e => setTo(e.target.value)}
+                        />
+                    </div>
+                    <div style={styles}>
                         <button onClick={() => closeModal(false)} style={styles.button}>Cancel</button>
-                        <button type="submit" style={styles.button}>Send Email</button>
+                        <button type="submit" style={styles.button}>Add Item</button>
                     </div>  
                 </form>
             </div>

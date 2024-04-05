@@ -64,7 +64,7 @@ function Inventory() {
           </div>
         </div>
       }
-      {(modalOpen === true) && <InventoryModal closeModal={setModalOpen}/>}
+      <InventoryModal closeModal={setModalOpen}/>
       </div>
     );
 };
