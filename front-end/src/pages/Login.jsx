@@ -1,8 +1,8 @@
 import { Navigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-
 import styles from "../styles/styles";
+
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -12,12 +12,12 @@ function Login() {
     const submit = async (e) => {
         e.preventDefault()
 
-        // const result = await axios.post('http://localhost:3050/api/auth', {
-        //     email: email,
-        //     password: password,
-        // });
-        // localStorage.setItem('token', result.data.token);
-        // localStorage.setItem('user', result.data.user._id);
+        const result = await axios.post('http://localhost:8080/api/auth', {
+            email: email,
+            password: password,
+        });
+        localStorage.setEmail('token', result.data.token);
+        localStorage.setEmail('user', result.data.user._id);
         setNavigate(true);
     }
 
@@ -38,7 +38,7 @@ function Login() {
               
               <div className="form-floating">
                     <p>Sign in to place orders and check their status.</p>
-                    <label for="floatingInput" style={styles.loginLabel}>Username: </label>
+                    <label for="floatingInput" style={styles.loginLabel}>email: </label>
                     <input type="email"  id="floatingInput"
                     onChange={e => setEmail(e.target.value)}
                     style={styles.text}

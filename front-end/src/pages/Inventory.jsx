@@ -1,27 +1,32 @@
 import Header from "../components/header";
 import styles from "../styles/styles";
 import InventoryModal from "../components/inventory";
+import axios from "axios";
 import { useState } from "react";
 
+async function getInventory() {
+  try {
+    const response = await axios.get('http://localhost:8080/api/inventory');
+    const inventory = response.data.result;
+    const itemList = document.getElementById('inventory-items');
+
+    // Clear any existing list items
+    itemList.innerHTML = '';
+
+    // Append each item to the list
+    inventory.forEach(items => {
+        const inventoryItems = document.createElement('li');
+        inventoryItems.textContent = `${items.name}: ${items.price}: ${items.quantity}`;
+        itemList.appendChild(inventoryItems);
+    });
+  } catch (error) {
+      console.error('Error fetching inventory:', error);
+  }
+}
+
 function Inventory() {
+  getInventory();
   const [modalOpen, setModalOpen] = useState(true);
-
-  //const [data, setData] = useState([]);
-
-  // useEffect(() => {
-  //     fetchData();
-  // }, []);
-
-  // const fetchData = async () => {
-  //     try {
-  //         const response = await fetch('/api/inventory');
-  //         const jsonData = await response.json();
-  //         setData(jsonData);
-  //     } catch (error) {
-  //         console.error('Error fetching data:', error);
-  //     }
-  //};
-
 
     return (
       <div>
@@ -29,42 +34,14 @@ function Inventory() {
         <div className="App">
           <Header/>
           <h1 style={styles.pageTitle}>Inventory</h1>
-          <button onClick={() => setModalOpen(true)} style={styles.pageButton}>Add to cart</button>
-          {/*Begin Copied table code*/}                    
           <div style={styles.pageBody}>
-              <table>
-                  <thead>
-                      <tr>
-                          <th>Item</th>
-                          <th>Description</th>
-                          <th>Price</th>
-                          <th>Stock</th>
-                          {/* Add more headers as needed */}
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <td> Sandwich </td>
-                      <td> Ham and swiss cheese </td>
-                      <td> $3.00 </td>
-                      <td> 5 </td>
-                    <tr>Granola bar</tr>
-                    <tr></tr>
-                      {/*data.map(item => (
-                          <tr key={item.id}>
-                              <td>{item.id}</td>
-                              <td>{item.name}</td>
-                              <td>{item.email}</td>
-
-                              {/*Use loop to fill???}
-
-                          </tr>
-                      )*/}
-                  </tbody>
-              </table>
+            {/*TABLE HERE*/} 
           </div>
+
+          <button onClick={() => setModalOpen(true)} style={styles.pageButton}>Add to cart</button>
         </div>
       }
-      <InventoryModal closeModal={setModalOpen}/>
+      <InventoryModal closeModal={setModalOpen} />
       </div>
     );
 };
