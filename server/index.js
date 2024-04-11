@@ -16,16 +16,31 @@ const pool = mysql.createPool({
   database: 'drive5'
 }).promise()
 
-app.get('/api/auth', async (req, res) => {
+//Login API
+app.post('/api/auth', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM Users')
-        res.status(200).send({success: true, result: result});
+        //Getting query data from login page and retreiving from database
+        var user = await pool.query(`SELECT username FROM Users WHERE username LIKE '${req.body.username}'`);
+        var savedPassword = await pool.query(`SELECT password FROM Users WHERE username LIKE '${req.body.username}'`);
+        user = user[0][0].username; //Query returned double arrays, had to process
+        savedPassword = savedPassword[0][0].password; //same here.
+
+        //Comparing username
+        if(!user) {
+            return res.status(401).send({message: "Invalid username or password"});
+        }
+        if(req.body.password ===  savedPassword) {
+            res.status(200).send({user: user, message: "Login Successful!"})
+        } else {
+            return res.status(401).send({message: "Invalid username or password"});
+        }
     } catch(e) {
         res.status(500).send({message: "Internal Server Error", error: e});
     }
 });
 
-app.get('/api/inventory', async (req, res) => {
+// Inventory API
+app.post('/api/inventory', async (req, res) => {
     try{
         const invReturn = await pool.query('SELECT * FROM items')
         res.status(200).send({success: true, result: invReturn});
@@ -35,7 +50,8 @@ app.get('/api/inventory', async (req, res) => {
     }
 });
 
-app.get('/api/orders', async (req, res) => {
+// Order page API
+app.post('/api/orders', async (req, res) => {
     try{
         const orderReturn = await pool.query('SELECT * FROM orders')
         res.status(200).send({success: true, result: orderReturn});

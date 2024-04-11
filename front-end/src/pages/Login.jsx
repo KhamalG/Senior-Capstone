@@ -5,19 +5,21 @@ import styles from "../styles/styles";
 
 
 function Login() {
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [navigate, setNavigate] = useState(false);
 
     const submit = async (e) => {
         e.preventDefault()
 
+        //Body of request/result
         const result = await axios.post('http://localhost:8080/api/auth', {
-            email: email,
+            username: username,
             password: password,
         });
-        localStorage.setEmail('token', result.data.token);
-        localStorage.setEmail('user', result.data.user._id);
+        console.log("result: ", result);
+        localStorage.setItem('token', result.data.token);
+        localStorage.setItem('user', result.data.user._id);
         setNavigate(true);
     }
 
@@ -38,9 +40,9 @@ function Login() {
               
               <div className="form-floating">
                     <p>Sign in to place orders and check their status.</p>
-                    <label for="floatingInput" style={styles.loginLabel}>email: </label>
-                    <input type="email"  id="floatingInput"
-                    onChange={e => setEmail(e.target.value)}
+                    <label for="floatingInput" style={styles.loginLabel}>username: </label>
+                    <input type="username"  id="floatingInput"
+                    onChange={e => setUsername(e.target.value)}
                     style={styles.text}
                     />
                 </div> 

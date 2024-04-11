@@ -7,7 +7,7 @@ export default function InventoryModal({closeModal}) {
     const [subject, setSubject] = useState('');
     const [text, setText] = useState('');
     const user = localStorage.getItem('user');
-    console.log("userssss: ", user)
+
 
     // const submit = async (e) => {
     //     e.preventDefault()
