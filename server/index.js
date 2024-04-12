@@ -22,7 +22,7 @@ app.post('/api/auth', async (req, res) => {
         //Getting query data from login page and retreiving from database
         var user = await pool.query(`SELECT username FROM Users WHERE username LIKE '${req.body.username}'`);
         var savedPassword = await pool.query(`SELECT password FROM Users WHERE username LIKE '${req.body.username}'`);
-        user = user[0][0].username; //Query returned double arrays, had to process
+        user = user[0][0].username; //Query returned double arrays, had to process.
         savedPassword = savedPassword[0][0].password; //same here.
 
         //Comparing username
@@ -39,27 +39,60 @@ app.post('/api/auth', async (req, res) => {
     }
 });
 
-// Inventory API
-app.post('/api/inventory', async (req, res) => {
+// Viewing Inventory API
+app.get('/api/inventory', async (req, res) => {
     try{
-        const invReturn = await pool.query('SELECT * FROM items')
+        var invReturn = await pool.query('SELECT * FROM items');
+        invReturn = invReturn[0];
+        console.log("invReturn activated with value: ", invReturn);
         res.status(200).send({success: true, result: invReturn});
     }
     catch(e){
-        res.status(500).send({message: "Internal Server Error - Could not get inventory", error: e});
+        res.status(500).send({message: "Internal Server Error - could not get inventory", error: e});
     }
 });
 
-// Order page API
-app.post('/api/orders', async (req, res) => {
+// View orders API
+app.get('/api/orders', async (req, res) => {
     try{
-        const orderReturn = await pool.query('SELECT * FROM orders')
+        const orderReturn = await pool.query('SELECT * FROM orders');
+        console.log("order return activated");
         res.status(200).send({success: true, result: orderReturn});
     }
     catch(e){
         res.status(500).send({message: "Internal Server Error - Could not get orders", error: e});
     }
 });
+
+// Create order API
+app.post('/api/createOrder', async (req, res) => {
+    try{
+        // Get input from webpage
+        var insertOrder = await pool.query('INSERT INTO Orders() VALUES ()');
+        console.log("invReturn activated with value: ", insertOrder);
+        res.status(200).send({success: true, result: insertOrder});
+    }
+    catch(e){
+        res.status(500).send({message: "Internal Server Error - could not access database", error: e});
+    }
+});
+
+// Delete order API
+
+// Add inventory item API
+app.post('/api/addItem', async (req, res) => {
+    try{
+        //Get input from webpage
+        var addItem = await pool.query('INSERT INTO Items() VALUES()');
+        console.log("addItem activated with value: ", addItem);
+        res.status(200).send({success: true, result: addItem});
+    }
+    catch(e){
+        res.status(500).send({message: "Internal Server Error - could not access database", error: e});
+    }
+});
+
+// Delete inventory item API
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Listening on port ${port}...`))

@@ -1,7 +1,7 @@
 import Header from "../components/header";
 import styles from "../styles/styles";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Order() {
   const [orders, setOrders] = useState([]);
@@ -10,9 +10,7 @@ function Order() {
       const response = await axios.get('http://localhost:8080/api/orders');
       const orders = response.data.result;
       setOrders(orders);
-      const orderList = document.getElementById('order-list');
-  
-            
+      const orderList = document.getElementById('order-list'); 
     } catch (error) {
         console.error('Error fetching orders:', error);
     }
@@ -23,7 +21,7 @@ function Order() {
       <Header/>
       <h1 style={styles.pageTitle}>Order</h1>
       <div style={styles.pageBody}>
-      Order creation stuff goes here.
+        Order creation stuff goes here.
       </div>
     </div>
   );

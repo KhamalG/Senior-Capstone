@@ -52,6 +52,7 @@ const styles = {
         padding: '5px',
     },
     modalBackground: {
+        fontFamily: 'Courier',
         width: '100vw',
         height: '100vh',
         backgroundColor: 'rgba(200, 200, 200)',
@@ -71,12 +72,12 @@ const styles = {
         padding: '25px'
     },
     label: {
-        fontFamily: 'Copperplate',
+        fontFamily: 'Courier',
         fontWeight: 'bold',
         paddingRight: '10px',
     },
     text: {
-      fontFamily: 'Copperplate' ,
+        fontFamily: 'Courier',
       paddingRight: '10px', 
     },
     labelBackground: {
@@ -86,11 +87,24 @@ const styles = {
         padding: '10px',
         border: '2px solid gray',
         margin: '10px',
-        fontFamily: 'Copperplate',
+        fontFamily: 'Courier',
     },
     header: {
-        fontFamily: 'Copperplate',
+        fontFamily: 'Courier',
         fontWeight: 'bold',
+    },
+    tableHead: {
+        fontFamily: 'Courier',
+        margin: '5px',
+        padding: '5px',
+        fontWeight: 'bold',
+        fontSize: '14pt',
+    },
+    tableBody: {
+        fontFamily: 'Courier',
+        fontSize: '12pt',
+        margin: '5px',
+        padding: '5px',
     },
 }
 

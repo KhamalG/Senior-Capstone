@@ -2,24 +2,25 @@ import Header from "../components/header";
 import styles from "../styles/styles";
 import InventoryModal from "../components/inventory";
 import axios from "axios";
-import { useState } from "react";
-
-
+import { useState, useEffect } from "react";
 
 function Inventory() {
   const [inventory, setInventory] = useState([]);
-  const getInventory = async (e) => {
-    try {
-      const response = await axios.get('http://localhost:8080/api/inventory');
-      const result = response.data.inventory;
-      setInventory(inventory);
-      console.log("inventory is: ", inventory);
-      const itemList = document.getElementById('inventory-items');
-      
-    } catch (error) {
-        console.error('Error fetching inventory:', error);
+  useEffect(() => {
+    async function getInventory() {
+      try {
+        const result = await axios.get('http://localhost:8080/api/inventory');
+        setInventory(result.data.result);
+        
+        const itemList = document.getElementById('inventory-items');
+        
+      } catch (error) {
+          console.error('Error fetching inventory:', error);
+      }
     }
-  }
+    getInventory();
+    console.log("inventory is: ", inventory);
+  }, []);
   const [modalOpen, setModalOpen] = useState(true);
 
     return (
@@ -28,25 +29,28 @@ function Inventory() {
         <div className="App">
           <Header/>
           <h1 style={styles.pageTitle}>Inventory</h1>
-          <div style={styles.pageBody}>
-            {/*TABLE HERE - READ IN FROM DATABASE*/} 
-            <table>
-                <thead>
+          <div>
+            {/*TABLE HERE - READ IN FROM DATABASE*/}
+            <table >
+                <thead style={styles.tableHead}>
                     <tr>
                         <th>Item Name</th>
                         <th>Price</th>
-                        <th>Amount</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
                         <th>Description</th>
                         {/* Add more headers as needed */}
                     </tr>
                 </thead>
-                <tbody>
-                  {/*Read in from database*/} 
-                    {inventory.map(item => (
-                        <tr key={item.name}>
+                <tbody style={styles.tableBody}>
+                  {/*Read in from database */}
+                    {inventory.map((item) => (
+                        <tr key={item.itemID}>
+                            <td>{item.name}</td>
                             <td>{item.price}</td>
-                            <td>{item.amount}</td>
-                            <td>{item.description}</td>
+                            <td>{item.category}</td>
+                            <td>{item.quantity}</td>
+                            <td>{item.Description}</td>
                             {/* Add more cells as needed */}
                         </tr>
                     ))}

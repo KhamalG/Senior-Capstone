@@ -17,7 +17,7 @@ function Login() {
             username: username,
             password: password,
         });
-        console.log("result: ", result);
+        //console.log("result: ", result);
         localStorage.setItem('token', result.data.token);
         localStorage.setItem('user', result.data.user._id);
         setNavigate(true);
@@ -33,7 +33,7 @@ function Login() {
           <main className="form-signin w-100 m-auto">
 
             <form onSubmit={submit}>
-              <h1 style={styles.loginHeader}>Drive 5 Deliveries</h1>
+              <h1 style={styles.loginHeader}>Drive-5 Deliveries</h1>
 
               {/* Don't forget to add the logo here! */}
               <img src={require("../styles/images/drive5logo.jpg")} height='350' width='350' alt='Drive-5 logo' />
