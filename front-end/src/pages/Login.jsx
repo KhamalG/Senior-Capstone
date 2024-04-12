@@ -1,23 +1,25 @@
 import { Navigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-
 import styles from "../styles/styles";
 
+
 function Login() {
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [navigate, setNavigate] = useState(false);
 
     const submit = async (e) => {
         e.preventDefault()
 
-        // const result = await axios.post('http://localhost:3050/api/auth', {
-        //     email: email,
-        //     password: password,
-        // });
-        // localStorage.setItem('token', result.data.token);
-        // localStorage.setItem('user', result.data.user._id);
+        //Body of request/result
+        const result = await axios.post('http://localhost:8080/api/auth', {
+            username: username,
+            password: password,
+        });
+        //console.log("result: ", result);
+        localStorage.setItem('token', result.data.token);
+        localStorage.setItem('user', result.data.user._id);
         setNavigate(true);
     }
 
@@ -31,16 +33,16 @@ function Login() {
           <main className="form-signin w-100 m-auto">
 
             <form onSubmit={submit}>
-              <h1 style={styles.loginHeader}>Drive 5 Deliveries</h1>
+              <h1 style={styles.loginHeader}>Drive-5 Deliveries</h1>
 
               {/* Don't forget to add the logo here! */}
               <img src={require("../styles/images/drive5logo.jpg")} height='350' width='350' alt='Drive-5 logo' />
               
               <div className="form-floating">
                     <p>Sign in to place orders and check their status.</p>
-                    <label for="floatingInput" style={styles.loginLabel}>Username: </label>
-                    <input type="email"  id="floatingInput"
-                    onChange={e => setEmail(e.target.value)}
+                    <label for="floatingInput" style={styles.loginLabel}>username: </label>
+                    <input type="username"  id="floatingInput"
+                    onChange={e => setUsername(e.target.value)}
                     style={styles.text}
                     />
                 </div> 

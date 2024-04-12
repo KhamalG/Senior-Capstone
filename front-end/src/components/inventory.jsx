@@ -7,7 +7,7 @@ export default function InventoryModal({closeModal}) {
     const [subject, setSubject] = useState('');
     const [text, setText] = useState('');
     const user = localStorage.getItem('user');
-    console.log("userssss: ", user)
+
 
     // const submit = async (e) => {
     //     e.preventDefault()
@@ -29,30 +29,31 @@ export default function InventoryModal({closeModal}) {
                 <form onSubmit={closeModal(false)}>
                     <h1 style={styles.header}>New Item</h1> {/*Title for modal */}
                     <div style={styles}>
-                        <label for="Item Name" style={styles.label}>Item Name</label>
+                        <label style={styles.label}>Item Name</label>
                         <input type="text" style={styles.label} id="itemname" placeholder="Product"
                         onChange={e => setTo(e.target.value)}
                         />
                     </div>
                     <div style={styles}>
-                        <label for="Quantity" style={styles.label}>Quantity</label>
+                        <label style={styles.label}>Quantity</label>
                         <input type="text" style={styles.label} id="quantity" placeholder="55"
                         onChange={e => setSubject(e.target.value)}
                         />
                     </div> 
                     <div style={styles}>
-                        <label for="Price" style={styles.label}>Price of One</label>
+                        <label style={styles.label}>Price of One</label>
                         $: <input type="text" style={styles.label} id="Cost" placeholder="20"
                         onChange={e => setText(e.target.value)}
                         />
                     </div>
                     <div style={styles}>
-                        <label for="Description" style={styles.label}>Description</label>
+                        <label style={styles.label}>Description</label>
                         <input type="text" style={styles.label} id="details" placeholder="Cheese and turkey"
                         onChange={e => setTo(e.target.value)}
                         />
                     </div>
                     <div style={styles}>
+                        {/*On submit, call to post route and insert value, then close modal.*/}
                         <button onClick={() => closeModal(false)} style={styles.button}>Cancel</button>
                         <button type="submit" style={styles.button}>Add Item</button>
                     </div>  

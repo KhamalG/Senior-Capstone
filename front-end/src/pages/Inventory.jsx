@@ -1,27 +1,27 @@
 import Header from "../components/header";
 import styles from "../styles/styles";
 import InventoryModal from "../components/inventory";
-import { useState } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 function Inventory() {
+  const [inventory, setInventory] = useState([]);
+  useEffect(() => {
+    async function getInventory() {
+      try {
+        const result = await axios.get('http://localhost:8080/api/inventory');
+        setInventory(result.data.result);
+        
+        const itemList = document.getElementById('inventory-items');
+        
+      } catch (error) {
+          console.error('Error fetching inventory:', error);
+      }
+    }
+    getInventory();
+    console.log("inventory is: ", inventory);
+  }, []);
   const [modalOpen, setModalOpen] = useState(true);
-
-  //const [data, setData] = useState([]);
-
-  // useEffect(() => {
-  //     fetchData();
-  // }, []);
-
-  // const fetchData = async () => {
-  //     try {
-  //         const response = await fetch('/api/inventory');
-  //         const jsonData = await response.json();
-  //         setData(jsonData);
-  //     } catch (error) {
-  //         console.error('Error fetching data:', error);
-  //     }
-  //};
-
 
     return (
       <div>
@@ -29,42 +29,39 @@ function Inventory() {
         <div className="App">
           <Header/>
           <h1 style={styles.pageTitle}>Inventory</h1>
-          <button onClick={() => setModalOpen(true)} style={styles.pageButton}>Add to cart</button>
-          {/*Begin Copied table code*/}                    
-          <div style={styles.pageBody}>
-              <table>
-                  <thead>
-                      <tr>
-                          <th>Item</th>
-                          <th>Description</th>
-                          <th>Price</th>
-                          <th>Stock</th>
-                          {/* Add more headers as needed */}
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <td> Sandwich </td>
-                      <td> Ham and swiss cheese </td>
-                      <td> $3.00 </td>
-                      <td> 5 </td>
-                    <tr>Granola bar</tr>
-                    <tr></tr>
-                      {/*data.map(item => (
-                          <tr key={item.id}>
-                              <td>{item.id}</td>
-                              <td>{item.name}</td>
-                              <td>{item.email}</td>
-
-                              {/*Use loop to fill???}
-
-                          </tr>
-                      )*/}
-                  </tbody>
-              </table>
+          <div>
+            {/*TABLE HERE - READ IN FROM DATABASE*/}
+            <table >
+                <thead style={styles.tableHead}>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Description</th>
+                        {/* Add more headers as needed */}
+                    </tr>
+                </thead>
+                <tbody style={styles.tableBody}>
+                  {/*Read in from database */}
+                    {inventory.map((item) => (
+                        <tr key={item.itemID}>
+                            <td>{item.name}</td>
+                            <td>{item.price}</td>
+                            <td>{item.category}</td>
+                            <td>{item.quantity}</td>
+                            <td>{item.Description}</td>
+                            {/* Add more cells as needed */}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
           </div>
+
+          <button onClick={() => setModalOpen(true)} style={styles.pageButton}>Add to cart</button>
         </div>
       }
-      <InventoryModal closeModal={setModalOpen}/>
+      <InventoryModal closeModal={setModalOpen} />
       </div>
     );
 };
