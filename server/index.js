@@ -55,7 +55,8 @@ app.get('/api/inventory', async (req, res) => {
 // View orders API
 app.get('/api/orders', async (req, res) => {
     try{
-        const orderReturn = await pool.query('SELECT * FROM orders');
+        var orderReturn = await pool.query('SELECT * FROM orders');
+        orderReturn = orderReturn[0]
         console.log("order return activated");
         res.status(200).send({success: true, result: orderReturn});
     }
