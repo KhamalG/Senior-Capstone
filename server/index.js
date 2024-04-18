@@ -56,7 +56,7 @@ app.get('/api/inventory', async (req, res) => {
 app.get('/api/orders', async (req, res) => {
     try{
         var orderReturn = await pool.query('SELECT * FROM orders');
-        orderReturn = orderReturn[0]
+        orderReturn = orderReturn[0];
         console.log("order return activated");
         res.status(200).send({success: true, result: orderReturn});
     }
@@ -80,6 +80,7 @@ app.post('/api/createOrder', async (req, res) => {
 
 // Delete order API
 
+
 // Add inventory item API
 app.post('/api/addItem', async (req, res) => {
     try{
@@ -94,6 +95,7 @@ app.post('/api/addItem', async (req, res) => {
 });
 
 // Delete inventory item API
+
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Listening on port ${port}...`))

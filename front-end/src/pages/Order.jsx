@@ -41,6 +41,7 @@ function Order() {
                 {/*Read in from database */}
                   {order.map((order) => (
                       <tr key={order.orderID}>
+                          <td>{order.orderID}</td>
                           <td>{order.status}</td>
                           <td>{order.userID}</td>
                           <td>{order.itemID}</td>
