@@ -36,7 +36,7 @@ function Login() {
               <h1 style={styles.loginHeader}>Drive-5 Deliveries</h1>
 
               {/* Don't forget to add the logo here! */}
-              <img src={require("../styles/images/drive5logo.jpg")} height='350' width='350' alt='Drive-5 logo' />
+              <img src={require("../styles/images/drive5logo.png")} height='350' width='350' alt='Drive-5 logo' />
               
               <div className="form-floating">
                     <p>Sign in to place orders and check their status.</p>

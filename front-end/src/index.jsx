@@ -6,22 +6,22 @@ import Inventory from './pages/Inventory';
 import Login from './pages/Login';
 import Order from './pages/Order';
 import reportWebVitals from './reportWebVitals';
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const user = localStorage.getItem('token')
+
+const backgroundStyle= {
+  height: '80vh',
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center"
+};
 
 root.render(
   <React.StrictMode>
-    
-    <BrowserRouter>
-        <Routes>
-          {user && <Route path = '/home' exact element={<Home/>} />}
-          <Route path='/' exact element={<Login/>}/>
-          <Route path='/home' exact element={<Home/>}/>
-          <Route path='/inventory' exact element={<Inventory/>}/>
-          <Route path='/order' exact element={<Order/>}/>
-        </Routes>
-    </BrowserRouter>
+    <div style={backgroundStyle}>
+      <App/>
+    </div>
   </React.StrictMode>
 );
 

@@ -21,19 +21,11 @@ const Account = ({navigation}) => {
         <StyledContainer>
             <StatusBar style="dark"/>
             <InnerContainer>
-                <ShopImage/>
-                <ShopContainer>
-                    <PageTitle welcome={true}>Welcome to the Drive 5 Store</PageTitle>
-                    <SubTitle welcome={true}>John Doe</SubTitle>
-                    <SubTitle welcome={true}>johndoe56</SubTitle>
-                    <StyledFormArea>
-                        <Avatar />
-                        <Line />
-                        <StyledButton onPress={() => navigation.navigate("Login")}>
-                            <ButtonText>Logout</ButtonText>
-                        </StyledButton>
-                    </StyledFormArea>
-                </ShopContainer>
+                
+                <StyledButton onPress={() => navigation.navigate("Login")}>
+                    <ButtonText>Logout</ButtonText>
+                </StyledButton>
+                    
             </InnerContainer>
         </StyledContainer>
     )

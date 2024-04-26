@@ -1,43 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import {
-    StyledContainer,
-    InnerContainer,
-    ShopContainer,
-    PageTitle,
-    SubTitle,
-    StyledFormArea,
-    Colors,
-    StyledButton,
-    ButtonText,
-    Line,
-    ShopImage,
-    Avatar
-} from './../components/styles'
+import { Image, View } from "react-native";
+import {useNavigation} from '@react-navigation/native'
 
 
-const Order = ({navigation}) => {
+
+export default function OrderPreparing() {
+    const navigation = useNavigation()
+    useEffect(() => {
+        setTimeout(() => {
+            navigation.navigate('Order Status');
+        }, 3000)
+    }, [])
     return (
-        <StyledContainer>
-            <StatusBar style="dark"/>
-            <InnerContainer>
-                <ShopImage/>
-                <ShopContainer>
-                    <PageTitle welcome={true}>Welcome to the Drive 5 Store</PageTitle>
-                    <SubTitle welcome={true}>John Doe</SubTitle>
-                    <SubTitle welcome={true}>johndoe56</SubTitle>
-                    <StyledFormArea>
-                        <Avatar />
-                        <Line />
-                        <StyledButton onPress={() => navigation.navigate("Login")}>
-                            <ButtonText>Logout</ButtonText>
-                        </StyledButton>
-                    </StyledFormArea>
-                </ShopContainer>
-            </InnerContainer>
-        </StyledContainer>
+        <View className='flex-1 bg-white justify-center items-center'>
+            <Image source={require('../assets/images/delivery.gif')} className='h-80 w-80' />
+        </View>
     )
 }
 
-
-export default Order;

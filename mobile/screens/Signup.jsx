@@ -47,7 +47,7 @@ const Signup = ({navigation}) => {
                         initialValues={{fullName: '', username: '', password: '', confirmPassword: ''}}
                         onSubmit={(values) => {
                             console.log(values);
-                            navigation.navigate("Shop");
+                            navigation.navigate("HomeScreen");
                         }}
                     >
                         {({handleChange, handleBlur, handleSubmit, values}) => (
