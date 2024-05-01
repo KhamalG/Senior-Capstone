@@ -13,11 +13,11 @@ A fourth-year Computer Science and Engineering Technology student-athlete who pl
 Andrew Schock
 A graduating Information Technology student at the University of Toledo. Enjoys designing websites and databases. Built and maintained the database for the project, participated in decisions and solving design problems, and wrote sections of the final paper, and the first draft of the pamphlet. 
 
-The Robot_WS contains the script for the manual navigation controls for the delivery rover drone
-The front-end contains the React JS website suited to manage inventory and orders
+The [Robot_WS](https://github.com/KhamalG/Senior-Capstone/tree/main/robot_ws) contains the script for the manual navigation controls for the delivery rover drone
+The [front-end](https://github.com/KhamalG/Senior-Capstone#:~:text=33%20Commits-,front%2Dend,-done%20for%20now) contains the React JS website code suited to manage inventory and orders
 ![Drive5 Admin Webpage Mockup](https://github.com/KhamalG/Senior-Capstone/assets/100321660/f7900b1d-e055-4a6f-8d3c-beb43657f5ab)
 
-The mobile/ contains the mobile app engineered with React Native for customers to place orders and track delivery progress
+The [mobile/](https://github.com/KhamalG/Senior-Capstone#:~:text=50%20minutes%20ago-,mobile,-finished%20enough%20for) contains the mobile app code engineered with React Native for customers to place orders and track delivery progress
 ![Drive 5 Mobile App Mockup](https://github.com/KhamalG/Senior-Capstone/assets/100321660/ade14b18-0bae-4dc5-a1f7-f0a488d0732d)
 
-The server/ contains the server scripting for the logic needed for the delivery system and communicates to the MySQL database developed using Node JS
+The [server/](https://github.com/KhamalG/Senior-Capstone#:~:text=5%20days%20ago-,server,-finished%20enough%20for) contains the server scripting for the logic needed for the delivery system and communicates to the MySQL database developed using Node JS
