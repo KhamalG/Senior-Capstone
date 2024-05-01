@@ -33,7 +33,7 @@ function Order() {
             style: tableStyles.labelArrived
           },
           {
-            orderID: 1,
+            orderID: 3,
             customerName: 'Justin Stephens',
             orderTotal: 14.00,
             deliveryZone: 7,
@@ -41,7 +41,7 @@ function Order() {
             style: tableStyles.labelEnRoute
           },
           {
-            orderID: 1,
+            orderID: 4,
             customerName: 'Merith Heytura',
             orderTotal: 26.00,
             deliveryZone: 8,
@@ -49,7 +49,7 @@ function Order() {
             style: tableStyles.labelDelivered
           },
           {
-            orderID: 1,
+            orderID: 5,
             customerName: 'Saleh Addossary',
             orderTotal: 45.00,
             deliveryZone: 2,

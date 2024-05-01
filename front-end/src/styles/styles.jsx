@@ -127,7 +127,7 @@ export const tableStyles = {
         backgroundColor: '#fff',
     },
     tableHeader: {
-        backgroundColor: '#050A30',
+        backgroundColor: '#6495ED',
         color: '#fff',
     },
     th: {
@@ -226,7 +226,7 @@ export const headerStyles = {
       alignItems: 'center',
       fontSize: '1.2rem',
       padding: '0 30px',
-      backgroundColor: '#050A30',
+      backgroundColor: '#6495ED',
       boxShadow: '0 5px 15px rgba(0, 0, 0, 0.25)',
       width: '95%',
       height: '80px',
