@@ -1,3 +1,5 @@
+# Team A-5 Senior Capstone Project
+
 For the University of Toledo's School of Engineering Senior Capstone class, we as Team A-5 (Khamal Goodwin, Merith Hutyera, Justin Stephens, Andrew Schock), aimed to develop a delivery rover drone with a mock delivery service that would allow us to showcase how our delivery drone would interact with systems in a realistic setting.
 
 For the delivery rover drone, we designed a 3-D printed cargo container, that fits on top of our tank chassis that was assembled. To control the drone it was equipped with a Rasberry Pi that was wired to a motor driver module that controlled the power input to motors. Our initial goal was to implement ROS2 to give the drone autonomous driving and obstacle avoidance capabilities, but we fell short of that goal due to time and the learning curve of the powerful tool.
